@@ -1,0 +1,72 @@
+.button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.primary {
+  background-color: #ff0042;
+  color: white;
+}
+
+.outline {
+  background-color: transparent;
+  border: 1.5px solid #ff0042;
+  color: #ff0042;
+}
+
+.arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+  font-size: 1.1em;
+}
+
+/* Button sizes */
+.small {
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+}
+
+.medium {
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+}
+
+.large {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+}
+
+/* Hover effects */
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 0, 66, 0.2);
+}
+
+.button:hover .arrow {
+  transform: translateX(4px);
+}
+
+.primary:hover {
+  background-color: #e6003b;
+}
+
+.outline:hover {
+  background-color: #ff0042;
+  color: white;
+}
+
+/* Active state */
+.button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(255, 0, 66, 0.2);
+} 
