@@ -1,57 +1,109 @@
+'use client'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import React, { useState } from 'react'
 import styles from "./navbar.module.css"
-import { ChevronDown } from 'lucide-react'
+import { ChevronDown, Menu, X } from 'lucide-react'
 
+const navItems = {
+  Services: [
+    'Mobile App Development',
+    'Web App Development',
+    'API Design',
+    'AI Agents',
+    'Cloud Optimisation',
+    'Data Migration',
+    'UI/UX'
+  ],
+  Industries: [
+    'Healthcare',
+    'Finance',
+    'Education',
+    'E-commerce',
+    'Real Estate'
+  ],
+  'Our Work': [
+    'Case Studies',
+    'Portfolio',
+    'Testimonials'
+  ]
+};
 
+const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeAccordion, setActiveAccordion] = useState<string | null>(null);
 
-type Props = {}
+  const toggleAccordion = (key: string) => {
+    setActiveAccordion(activeAccordion === key ? null : key);
+  };
 
-const Navbar = (props: Props) => {
   return (
-    <nav className={styles.nav}>
-        <div className="logo">
-             {/* logo */}
-        <Link href="/">
-            <h1 className={styles.logo}>Alfabolt</h1>   
-        {/* <Image
-        src="/alfabolt-logo.png"
-        alt="Logo"
-        width={100}
-        height={100}
-        /> */}
+    <nav className={styles.navbar}>
+      <div className={styles.navContainer}>
+        {/* Logo */}
+        <Link href="/" className={styles.logo}>
+          <Image src="/images/alfabolt-logo.png" alt="Alfabolt" width={120} height={40} />
         </Link>
+
+        {/* Desktop Navigation */}
+        <div className={styles.desktopNav}>
+          {Object.entries(navItems).map(([key, items]) => (
+            <div key={key} className={styles.navItem}>
+              <span className={styles.navLink}>
+                {key} <ChevronDown className={styles.chevron} size={16} />
+              </span>
+              <div className={styles.dropdown}>
+                {items.map((item) => (
+                  <Link key={item} href="#" className={styles.dropdownItem}>
+                    {item}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          ))}
+          <button  className={styles.cta}>Talk to Us</button>
         </div>
-       <div className={styles.navlinks}>
-        {/* navlinks */}
-        <ul>
-             {/* menu items */}
-            <li>
-            <Link href="/contact" className={styles.dropdownicon}>
-                    Services <ChevronDown className={styles.icon} height={16} />
-            </Link>
-             {/* <ul className={styles.dropdown}>
-                <li><Link href="/services/digital-transformation">Digital Transformation</Link></li>
-                <li><Link href="/services/project-management">Project Management</Link></li>
-                <li><Link href="/services/strategy-development">Strategy Development</Link></li>
-            </ul> */}
-            </li>
-            <li>
-            <Link href="/login">
-                Industries  
-              
-            </Link>
-            </li>
-            <li>
-            <Link href="/signup">
-                    Our Work
-                   
-            </Link>
-            </li>
-        </ul>
-        <button className={styles.cta}>Talk to Us</button>
-       </div>
+
+        {/* Mobile Menu Button */}
+        <button 
+          className={styles.menuButton}
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
+
+      {/* Mobile Navigation */}
+      <div className={`${styles.mobileNav} ${isMenuOpen ? styles.open : ''}`}>
+        {Object.entries(navItems).map(([key, items]) => (
+          <div key={key} className={styles.accordionItem}>
+            <button
+              className={styles.accordionButton}
+              onClick={() => toggleAccordion(key)}
+            >
+              {key}
+              <ChevronDown 
+                size={16} 
+                className={`${styles.accordionIcon} ${
+                  activeAccordion === key ? styles.rotate : ''
+                }`}
+              />
+            </button>
+            {activeAccordion === key && (
+              <div className={styles.accordionContent}>
+                {items.map((item) => (
+                  <Link key={item} href="#" className={styles.accordionLink}>
+                    {item}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+        ))}
+        <div className={styles.mobileButton}>
+          <button className={styles.cta}>Send Request</button>
+        </div>
+      </div>
     </nav>
   )
 }
