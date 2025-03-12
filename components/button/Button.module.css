@@ -14,7 +14,8 @@
 }
 
 .primary {
-  background-color: #ff0042;
+  background-color: transparent;
+  backdrop-filter: blur(10px);
   color: white;
 }
 
@@ -48,8 +49,8 @@
 
 /* Hover effects */
 .button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(255, 0, 66, 0.2);
+  transform: translateY(-1px);
+  /* box-shadow: 0 4px 12px rgba(255, 0, 66, 0.2); */
 }
 
 .button:hover .arrow {
@@ -57,7 +58,7 @@
 }
 
 .primary:hover {
-  background-color: #e6003b;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .outline:hover {

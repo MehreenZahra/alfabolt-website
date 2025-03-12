@@ -17,19 +17,19 @@ const services = [
     icon: Smartphone,
     title: 'Mobile App Development',
     description: 'Develop scalable mobile apps optimized for high performance',
-    backgroundImage: '/images/image.avif'
+    backgroundImage: '/images/mobile-app.avif'
   },
   {
     icon: Globe,
     title: 'Web App Development',
     description: 'Complete engineering solutions for high-performance web apps',
-    backgroundImage: '/images/image.avif'
+    backgroundImage: '/images/webapp.avif'
   },
   {
     icon: Code2,
     title: 'API Design',
     description: 'Boost your systems with our custom APIs, designed for seamless integration and outstanding performance',
-    backgroundImage: '/images/image.avif'
+    backgroundImage: '/images/api.avif'
   },
   {
     icon: Bot,
@@ -41,25 +41,25 @@ const services = [
     icon: Cloud,
     title: 'Cloud Optimisation',
     description: 'Optimise your AWS / GCP costs and effectively manage your cloud infrastructure',
-   backgroundImage: '/images/image.avif'
+   backgroundImage: '/images/cloud.avif'
   },
   {
     icon: Database,
     title: 'Data Migration',
     description: 'Seamlessly transition between databases in real time without worrying about downtime',
-   backgroundImage: '/images/image.avif'
+   backgroundImage: '/images/product.avif'
   },
   {
     icon: ChartNoAxesCombined,
     title: 'Product Analysis',
     description: 'Seamlessly transition between databases in real time without worrying about downtime',
-   backgroundImage: '/images/image.avif'
+   backgroundImage: '/images/data.avif'
   },
   {
     icon: Palette,
     title: 'UI/UX',
     description: 'Create products that blend intuitive design with a user-friendly experience for maximum engagement',
-   backgroundImage: '/images/image.avif'
+   backgroundImage: '/images/uiux.avif'
   }
 ];
 

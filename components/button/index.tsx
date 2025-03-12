@@ -2,7 +2,7 @@ import { FC, ButtonHTMLAttributes } from 'react';
 import styles from './Button.module.css';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'outline';
+  variant?: 'primary' | 'outline' | 'glass-button';
   size?: 'small' | 'medium' | 'large';
   children: React.ReactNode;
 }
