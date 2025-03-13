@@ -1,32 +1,32 @@
-'use client'
-import Image from 'next/image'
-import Link from 'next/link'
-import React, { useState } from 'react'
-import styles from "./navbar.module.css"
-import { ChevronDown, Menu, X } from 'lucide-react'
+"use client";
+import Image from "next/image";
+import Link from "next/link";
+import React, { useState } from "react";
+import styles from "./navbar.module.css";
+import { ChevronDown, Menu, X } from "lucide-react";
 
 const navItems = {
   Services: [
-    'Mobile App Development',
-    'Web App Development',
-    'API Design',
-    'AI Agents',
-    'Cloud Optimisation',
-    'Data Migration',
-    'UI/UX'
+    "Mobile App Development",
+    "Web App Development",
+    "API Design",
+    "AI Agents",
+    "Cloud Optimisation",
+    "Data Migration",
+    "UI/UX",
   ],
   Industries: [
-    'Healthcare',
-    'Finance',
-    'Education',
-    'E-commerce',
-    'Real Estate'
+    "Healthcare",
+    "Finance",
+    "Education",
+    "E-commerce",
+    "Real Estate",
   ],
-  'Our Work': [
-    'Case Studies',
-    'Portfolio',
-    'Testimonials'
-  ]
+  "Our Work": [
+    "Case Studies", 
+    "Portfolio", 
+    "Testimonials"
+  ],
 };
 
 const Navbar = () => {
@@ -42,7 +42,12 @@ const Navbar = () => {
       <div className={styles.navContainer}>
         {/* Logo */}
         <Link href="/" className={styles.logo}>
-          <Image src="/images/alfabolt-logo.png" alt="Alfabolt" width={120} height={40} />
+          <Image
+            src="/images/alfabolt-logo.png"
+            alt="Alfabolt"
+            width={120}
+            height={40}
+          />
         </Link>
 
         {/* Desktop Navigation */}
@@ -61,20 +66,26 @@ const Navbar = () => {
               </div>
             </div>
           ))}
-          <button  className={styles.cta}>Talk to Us</button>
+          <button className={styles.cta}>Talk to Us</button>
         </div>
 
         {/* Mobile Menu Button */}
-        <button 
+        <button
           className={styles.menuButton}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label="Toggle menu"
         >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          <div
+            className={`${styles.menuIcon} ${isMenuOpen ? styles.open : ""}`}
+          >
+            <Menu size={24} className={styles.menu} />
+            <X size={24} className={styles.close} />
+          </div>
         </button>
       </div>
 
       {/* Mobile Navigation */}
-      <div className={`${styles.mobileNav} ${isMenuOpen ? styles.open : ''}`}>
+      <div className={`${styles.mobileNav} ${isMenuOpen ? styles.open : ""}`}>
         {Object.entries(navItems).map(([key, items]) => (
           <div key={key} className={styles.accordionItem}>
             <button
@@ -82,10 +93,10 @@ const Navbar = () => {
               onClick={() => toggleAccordion(key)}
             >
               {key}
-              <ChevronDown 
-                size={16} 
+              <ChevronDown
+                size={16}
                 className={`${styles.accordionIcon} ${
-                  activeAccordion === key ? styles.rotate : ''
+                  activeAccordion === key ? styles.rotate : ""
                 }`}
               />
             </button>
@@ -105,7 +116,7 @@ const Navbar = () => {
         </div>
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

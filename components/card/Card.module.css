@@ -140,12 +140,6 @@
     gap: 16px;
   }
 
-  /* Show button by default on mobile */
-  /* .buttonWrapper {
-    opacity: 1;
-    transform: translateY(0);
-  } */
-
   /* Show description by default on mobile */
   .description {
     opacity: 1;

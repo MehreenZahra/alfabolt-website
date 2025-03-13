@@ -1,7 +1,7 @@
 .navbar {
   position: sticky;
-  top: 0;
   z-index: 1000;
+  width: 100%;
   background: rgba(0, 0, 0, 0.9);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -45,12 +45,18 @@
 
 .navLink:hover {
   background-color: #313131;
-  border-radius: 40px;
+  border-radius: 80px;
   transition: background-color 0.3s ease;
 }
-.chevron:hover{
-  transform: rotate(180deg);
+.chevron {
   transition: transform 0.3s ease;
+}
+
+.navLink:hover .chevron {
+  transform: rotate(180deg);
+}
+.navItem:hover .chevron {
+  transform: rotate(180deg);
 }
 .dropdown {
   position: absolute;
@@ -68,7 +74,6 @@
   flex-direction: column;
   gap: 4px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 .navItem:hover .dropdown {
@@ -83,18 +88,16 @@
   border-radius: 40px;
   transition: all 0.1s ease;
   text-decoration: none;
+  font-family: inherit;
   font-size: 0.9rem;
   display: block;
   width: 100%;
-  /* text-align: left; */
 }
 
 .dropdownItem:hover {
   background: rgba(255, 255, 255, 0.1);
-  /* transform: translateX(4px); */
   border-radius: 40px;
 }
-
 
 /* Mobile Menu Button */
 .menuButton {
@@ -104,26 +107,91 @@
   color: #fff;
   cursor: pointer;
   z-index: 50;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.menuButton:hover {
+  transform: scale(1.1);
+}
+/* Hamburger to X transition */
+.menuIcon {
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.menuIcon.open {
+  transform: rotate(90deg);
+}
+
+/* Individual icon transitions */
+.menuIcon svg {
+  transition: opacity 0.2s ease, transform 0.3s ease;
+}
+
+.menuIcon .menu {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.menuIcon .close {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transform: scale(0.5) rotate(-90deg);
+}
+
+.menuIcon.open .menu {
+  opacity: 0;
+  transform: scale(0.5) rotate(90deg);
+}
+
+.menuIcon.open .close {
+  color: #ff0042;
+  opacity: 1;
+  transform: scale(1) rotate(0);
+}
+
+/* Close button transition */
+.closeButton {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.closeButton:hover {
+  transform: rotate(90deg);
 }
 
 /* Mobile Navigation */
 .mobileNav {
   position: fixed;
-  top: 0;
-  right: 0;
-  height: 100vh;
-  width: 290px;
-  background: #000000;
-  padding: 80px 24px 24px;
+  top: 90;
+  right: 10;
+  height: fit-content;
+  min-width: 300px;
+  border-radius: 34px;
+  background: #0d0d0d;
+  padding: 12px 0px;
   transform: translateX(100%);
   transition: transform 0.3s ease-in-out;
   visibility: hidden;
-  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 1000;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s ease;
+  z-index: 1001;
 }
 
 .mobileNav.open {
   transform: translateX(0);
   visibility: visible;
+  transition: transform 0.3s ease-in-out;
 }
 
 .accordionItem {
@@ -133,7 +201,7 @@
 
 .accordionButton {
   width: 100%;
-  padding: 12px;
+  padding: 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -142,11 +210,8 @@
   color: #fff;
   cursor: pointer;
   font-size: 1rem;
+  font-family: inherit;
   border-radius: 40px;
-}
-
-.accordionButton:hover {
-  background: rgba(255, 255, 255, 0.1);
 }
 
 .accordionIcon {
@@ -161,6 +226,7 @@
   display: flex;
   flex-direction: column;
   padding: 8px 12px;
+  animation: fadeIn 0.3s ease forwards;
 }
 
 .accordionLink {
@@ -200,97 +266,24 @@
     visibility: visible;
   }
 }
-
-.nav{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.3rem 3rem;
-    background-color: #080707;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+@media (min-width: 1024px) {
+  .mobileNav {
+    display: none !important;
+  }
 }
-
-.navlinks {
-   display: flex;
-   gap: 1rem;
+.cta {
+  background-color: #eb1010;
+  color: white;
+  padding: 13px 18px 12px;
+  text-align: center;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 1rem;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
 }
-.navlinks ul {
-    display: flex;
-    align-items: end;
-    list-style: none;
-    color: white;
-    gap: 1rem;
-}
-.dropdownicon{
-    display: flex;
-    align-items: center;
-}
-
-.icon:hover{
-   transform: rotate(180deg);
-    transition: transform 0.3s ease-in;
-    transition: transform 0.3s ease-out;
-}
-.logo{
-    color: white;
-    margin-top: 8px;
-
-}
-.navlinks ul li {
-    background-color:#080707 ;
-    color: white;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 1rem;
-    border: none;
-    border-radius: 30px;
-
-    padding: 10px 15px;
-    cursor: pointer;
-}
-
-.navlinks ul li:hover{
-    background-color:#313131 ;
-    border-radius: 40px;
-    transition: background-color 0.3s ease;
-}
-
-.cta{
-    background-color: #eb1010;
-    color: white;
-    padding: 13px 18px 12px;
-    text-align: center;
-    font-weight: 600;
-    font-style: normal;
-    font-size: 1rem;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-}
-.cta:hover{
-    background-color: #aa1414;
-    transition: background-color 0.3s ease;
-}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-    position: absolute;
-    top: 100%;
-    right: auto;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #333;
-    min-width: 160px;
-    z-index: 1;
-}
-  
-.dropdownicon:hover .dropdown-content {
-    display: block;
+.cta:hover {
+  background-color: #aa1414;
+  transition: background-color 0.3s ease;
 }
