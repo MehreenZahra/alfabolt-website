@@ -112,7 +112,7 @@ const Navbar = () => {
           </div>
         ))}
         <div className={styles.mobileButton}>
-          <button className={styles.cta}>Send Request</button>
+          <button className={styles.cta}>Talk to Us</button>
         </div>
       </div>
     </nav>

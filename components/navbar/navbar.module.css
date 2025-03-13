@@ -19,7 +19,22 @@
 .logo {
   z-index: 50;
 }
-
+.cta {
+  background-color: #eb1010;
+  color: white;
+  padding: 13px 18px 12px;
+  text-align: center;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 1rem;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+}
+.cta:hover {
+  background-color: #aa1414;
+  transition: background-color 0.3s ease;
+}
 /* Desktop Navigation */
 .desktopNav {
   display: flex;
@@ -58,6 +73,14 @@
 .navItem:hover .chevron {
   transform: rotate(180deg);
 }
+.navItem:hover .dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform-origin: top;
+  transform: translateX(-50%) translateY(5px);
+  transform: scaleY(1);
+  transition: transform 0.3s ease;
+}
 .dropdown {
   position: absolute;
   top: calc(100% + -8px);
@@ -77,14 +100,6 @@
   border: 1px solid rgba(252, 241, 241, 0.1);
 }
 
-.navItem:hover .dropdown {
-  opacity: 1;
-  visibility: visible;
-  transform-origin: top;
-  transform: translateX(-50%) translateY(5px);
-  transform: scaleY(1);
-  transition: transform 0.3s ease;
-}
 
 .dropdownItem {
   color: #fff;
@@ -275,19 +290,4 @@
     display: none !important;
   }
 }
-.cta {
-  background-color: #eb1010;
-  color: white;
-  padding: 13px 18px 12px;
-  text-align: center;
-  font-weight: 600;
-  font-style: normal;
-  font-size: 1rem;
-  border: none;
-  border-radius: 30px;
-  cursor: pointer;
-}
-.cta:hover {
-  background-color: #aa1414;
-  transition: background-color 0.3s ease;
-}
+
