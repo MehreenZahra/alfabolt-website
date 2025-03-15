@@ -2,7 +2,7 @@ import { FC, ButtonHTMLAttributes } from 'react';
 import styles from './Button.module.css';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'outline' | 'glass-button';
+  variant?: 'primary' | 'outline';
   size?: 'small' | 'medium' | 'large';
   children: React.ReactNode;
 }
@@ -20,7 +20,6 @@ export const Button: FC<ButtonProps> = ({
       {...props}
     >
       {children}
-      {/* <span className={styles.arrow}>→</span> */}
       <span className={styles.arrow}>❯</span>
     </button>
   );
