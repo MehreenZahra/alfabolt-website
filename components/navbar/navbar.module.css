@@ -1,6 +1,9 @@
 .navbar {
-  position: sticky;
-  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10000000;
   width: 100%;
   background: #0d0d0d;
   backdrop-filter: blur(10px);

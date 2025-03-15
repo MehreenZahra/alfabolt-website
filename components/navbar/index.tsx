@@ -36,6 +36,7 @@ const Navbar = () => {
   const toggleAccordion = (key: string) => {
     setActiveAccordion(activeAccordion === key ? null : key);
   };
+  
 
   return (
     <nav className={styles.navbar}>
