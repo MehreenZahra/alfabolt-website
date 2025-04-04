@@ -22,11 +22,7 @@ const navItems = {
     "E-commerce",
     "Real Estate",
   ],
-  "Our Work": [
-    "Case Studies", 
-    "Portfolio", 
-    "Testimonials"
-  ],
+  "Our Work": ["Case Studies", "Portfolio", "Testimonials"],
 };
 
 const Navbar = () => {
@@ -36,7 +32,6 @@ const Navbar = () => {
   const toggleAccordion = (key: string) => {
     setActiveAccordion(activeAccordion === key ? null : key);
   };
-  
 
   return (
     <nav className={styles.navbar}>
@@ -44,7 +39,7 @@ const Navbar = () => {
         {/* Logo */}
         <Link href="/" className={styles.logo}>
           <Image
-            src="/images/alfabolt-logo.png"
+            src="/images/alfabolt-logo-light.webp"
             alt="Alfabolt"
             width={120}
             height={40}
