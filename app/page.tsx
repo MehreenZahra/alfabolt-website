@@ -8,7 +8,7 @@ export default function Home() {
     {
       id: "1",
       heading: "Fintech",
-      cardTitle: "Enhance Financial Services with Cutting-Edge Technology",
+      cardTitle: "Automate HR Processes with Software",
       description:
         "Accelerate your fintech operations with tailored solutions that break barriers and drive innovation",
       buttonText: "Discover our Fintech solutions",
@@ -28,7 +28,7 @@ export default function Home() {
     {
       id: "3",
       heading: "Social",
-      cardTitle: "Enhance Financial Services with Cutting-Edge Technology",
+      cardTitle: "Automate HR Processes with Software",
       description:
         "Accelerate your fintech operations with tailored solutions that break barriers and drive innovation",
       buttonText: "Discover our Social solutions",
