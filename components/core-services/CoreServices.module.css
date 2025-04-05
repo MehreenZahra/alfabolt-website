@@ -1,7 +1,7 @@
 .coreServices {
   padding: 50px 0;
   background-color: #fff;
-  margin-top: 80px;
+  margin: 0 auto;
 }
 
 .container {
@@ -11,6 +11,7 @@
 }
 
 .heading {
+  margin-top: 80px;
   text-align: center;
   font-size: 40px;
   font-style: normal;
@@ -50,4 +51,4 @@
     grid-template-columns: 1fr;
     gap: 20px;
   }
-} 
+}
