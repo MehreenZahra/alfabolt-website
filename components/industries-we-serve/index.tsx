@@ -2,6 +2,7 @@
 import React from "react";
 import styles from "./styles.module.css";
 import { Button } from "../button";
+import Link from "next/link";
 
 interface Industry {
   id: string;
@@ -45,9 +46,11 @@ const IndustryWeServe: React.FC<IndustryCardsProps> = ({ industries }) => {
                     {industry.description}
                   </p>
                 </div>
-                <Button variant="outline" className={styles.button}>
-                  {industry.buttonText}
-                </Button>
+                <Link href="/contact" className={styles.link}>
+                  <Button variant="outline" className={styles.button}>
+                    {industry.buttonText}
+                  </Button>
+                </Link>
               </div>
             </div>
           ))}
