@@ -48,11 +48,11 @@
   border-radius: 35px;
   background: #f7f7f7;
   overflow: hidden;
-  /* width: 100%; */
-  /* height: fit-content; */
-  /* max-height: 100%; */
-  /* min-height: auto; */
-  /* flex-shrink: 0; */
+  width: 100%;
+  height: fit-content;
+  max-height: 100%;
+  min-height: auto;
+  flex-shrink: 0;
   aspect-ratio: 1;
 }
 .imageContainer {
@@ -125,10 +125,9 @@
   flex-direction: column;
   flex: 1;
   align-items: center;
-  /* height: fit-content; */
-  /* width: 100%; */
-  /* max-height: fit-content; */
-  /* min-height: fit-content; */
+  height: fit-content;
+  min-height: max-content;
+  width: 100%;
   transition: all 0.4s ease-in-out;
 }
 .textContainer {
@@ -140,7 +139,6 @@
   color: #262626;
   font-size: 1.5rem;
   font-weight: 600;
-  /* margin-bottom: 16px; */
   line-height: 1.3;
 }
 
@@ -148,30 +146,21 @@
   font-size: 1.2rem;
   line-height: 1.5;
   color: #262626;
-  /* margin-bottom: 20px; */
   opacity: 0;
-  /* max-height: 0; */
   overflow: hidden;
 }
 .button {
   font-size: medium;
   font-weight: 500;
   width: 100%;
-  /* position: sticky; */
-  /* bottom: 10; */
 }
 .link {
   position: absolute;
-  width: calc(100% - 60px); /* Accounting for padding */
+  width: calc(100% - 60px);
   bottom: 30px;
   left: 30px;
   right: 30px;
   z-index: 1;
-  /* position: absolute;
-  width: 100%;
-  padding: 5px 20px 10px 30px;
-  bottom: 10;
-  z-index: 1; */
 }
 
 /* Hover effects */
@@ -179,13 +168,6 @@
   height: 70px;
   padding-top: 30px;
   padding-bottom: 10px;
-}
-.card:hover .button {
-  /* position: sticky; */
-  /* bottom: inherit; */
-  /* top: initial; */
-  /* width: 100%; */
-  /* top: 50; */
 }
 .card:hover .imageContainer {
   opacity: 0;
@@ -208,24 +190,14 @@
 }
 
 .card:hover .textContainer {
-  transform: translateY(-0.8%);
+  /* transform: translateY(-0.8%);
   transition-behavior: smooth;
-  transition: all 0.2s ease;
+  transition: all 0.2s ease; */
 }
 .card:hover .cardDescription {
   opacity: 1;
-  /* margin-bottom: 26rem; */
-  /* height: 30rem; */
-  /* max-height: fit-content; */
-}
-.card:hover .cardLower {
-  /* transform: translateY(-40px); */
-}
-
-.card:hover .cardDescription {
-  /* opacity: 1;
-  transform: translateY(0);
-  max-height: 100px; */
+  height: auto;
+  min-height: max-content;
 }
 
 @media (max-width: 1024px) {
@@ -237,5 +209,9 @@
 @media (max-width: 850px) {
   .cardContainer {
     grid-template-columns: 1fr;
+  }
+  .card:hover .cardLower {
+    height: 100%;
+    min-height: 40rem;
   }
 }
